@@ -2,25 +2,28 @@ import React, { FormEvent, useState } from "react";
 import Button from "../../Button";
 import { Contact } from "../../../store/contacts";
 
+// Define props for ContactForm component
 interface ContactFormProps {
-  onSubmit: (data: Contact) => void;
-  data?: Contact
+  onSubmit: (data: Contact) => void; // Function to handle form submission
+  data?: Contact; // Optional contact data for pre-filling the form
 }
 
+// Define the shape of form data
 interface FormData {
   firstName: string;
   lastName: string;
   status: string;
-} 
+}
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, data }) => {
-  
+  // Initialize form state with optional pre-filled data
   const [formData, setFormData] = useState<FormData>({
     firstName: data?.firstName || "",
     lastName: data?.lastName || "",
     status: data?.status || "active",
-});
+  });
 
+  // Handle input changes and update form state
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -29,13 +32,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, data }) => {
     }));
   };
 
+  // Handle form submission
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
     const contactData = {
-      id: data?.id || Math.random(),
+      id: data?.id || Math.random(), // Generate a new ID if none exists
       ...formData,
     };
-    onSubmit(contactData);
+    onSubmit(contactData); // Call the onSubmit function with form data
   };
 
   return (
@@ -122,6 +126,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, data }) => {
           </div>
         </div>
 
+        {/* Submit button */}
         <Button type="submit">Save {data && 'Editted '}Contact</Button>
       </form>
     </div>

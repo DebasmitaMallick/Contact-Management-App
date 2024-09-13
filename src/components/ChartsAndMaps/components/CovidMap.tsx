@@ -16,6 +16,7 @@ const DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
+// Interface for props
 interface CovidMapProps {
   data: CountryCovidData[];
 }
@@ -23,18 +24,18 @@ interface CovidMapProps {
 const CovidMap: React.FC<CovidMapProps> = ({ data }) => {
   return (
     <MapContainer
-      center={[20, 0]}
-      zoom={2}
-      style={{ height: "100vh", width: "100%" }}
+      center={[20, 0]} // Center the map on the equator and prime meridian
+      zoom={2} // Set the zoom level to show the entire world
+      style={{ height: "100vh", width: "100%" }} // Full viewport height and width
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" // OpenStreetMap tile URL
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' // Attribution text
       />
-      {data.map((country: any) => (
+      {data.map((country) => (
         <Marker
-          key={country.countryInfo._id}
-          position={[country.countryInfo.lat, country.countryInfo.long]}
+          key={country.countryInfo._id} // Unique key for each marker
+          position={[country.countryInfo.lat, country.countryInfo.long]} // Marker position based on latitude and longitude
         >
           <Popup>
             <strong>{country.country}</strong>
