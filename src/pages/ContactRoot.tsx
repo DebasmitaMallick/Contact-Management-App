@@ -24,4 +24,3 @@ const ContactRootLayout: React.FC = () => {
 };
 
 export default ContactRootLayout;
-// Exporting the ContactRootLayout component to be used in the routing structure
