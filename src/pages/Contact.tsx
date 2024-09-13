@@ -1,6 +1,6 @@
 import Contacts from "../components/Contacts";
 
-const ContactPage = () => {
+const ContactPage: React.FC = () => {
 
   return (
     <Contacts />

@@ -36,7 +36,7 @@ export interface CountryCovidData {
   todayRecovered: number;
   updated: number;
 }
-const CaseInfo = () => {
+const CaseInfo: React.FC = () => {
     const { isLoading, error, data } = useQuery({
         queryKey: ["countryData"],
         queryFn: () =>
@@ -47,7 +47,7 @@ const CaseInfo = () => {
     
       // Handle loading state
       if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className='text-center'>Loading...</div>;
       }
     
       // Handle error state
@@ -62,7 +62,7 @@ const CaseInfo = () => {
 
       return (
         <div className="w-4/5 h-96 m-auto">
-          <h1 className="text-xl text-center py-4">Case Map</h1>
+          <h1 className="font-semibold text-center py-4">Global COVID-19 Map</h1>
           <CovidMap data={data} />
         </div>
       );

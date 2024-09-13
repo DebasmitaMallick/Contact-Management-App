@@ -6,7 +6,7 @@ interface LineChartProps {
   data: CaseData
 }
 
-const CustomLineChart = ({ data } : LineChartProps) => {
+const CustomLineChart:React.FC<LineChartProps> = ({ data }) => {
   const formattedData = Object.entries(data).map(([date, cases]) => (
     {
       name: date,

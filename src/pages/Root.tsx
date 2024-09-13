@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import SideNavigationBar from '../components/SideNavigationBar';
 
-const RootLayout = () => {
+const RootLayout: React.FC = () => {
   return (
     <>
       <SideNavigationBar />

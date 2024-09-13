@@ -4,7 +4,7 @@ import CustomLineChart from "./LineChart";
 export interface CaseData {
   [date: string]: number;
 }
-const CaseFluctuations = () => {
+const CaseFluctuations: React.FC = () => {
   // Fetch data with useQuery
   const { isLoading, error, data } = useQuery({
     queryKey: ["covidData"],
@@ -16,7 +16,7 @@ const CaseFluctuations = () => {
 
   // Handle loading state
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="text-center">Loading...</div>;
   }
 
   // Handle error state
@@ -27,7 +27,7 @@ const CaseFluctuations = () => {
   // Log data for debugging (optional)
   return (
     <div className="w-4/5 h-96 m-auto">
-      <h1 className="text-xl text-center py-4">Case Fluctuations</h1>
+      <h1 className="font-semibold text-center py-4">Case Fluctuations</h1>
       {
         data && <CustomLineChart data={data.cases} />
       }

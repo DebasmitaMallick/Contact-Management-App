@@ -20,7 +20,7 @@ interface CovidMapProps {
   data: CountryCovidData[];
 }
 
-const CovidMap = ({ data }: CovidMapProps) => {
+const CovidMap: React.FC<CovidMapProps> = ({ data }) => {
   return (
     <MapContainer
       center={[20, 0]}

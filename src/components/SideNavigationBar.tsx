@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { MdContacts } from "react-icons/md";
 
-const SideNavigationBar = () => {
+const SideNavigationBar: React.FC = () => {
     let linkClasses = "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
     let activeClass = "bg-gray-100"
     return (

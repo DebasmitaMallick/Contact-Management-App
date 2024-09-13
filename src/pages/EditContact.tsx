@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Contact, contactActions } from '../store/contacts';
 import { toast } from 'react-toastify';
 
-const EditContactPage = () => {
+const EditContactPage: React.FC = () => {
   const location = useLocation();
   const {state: data} = location;
   const dispatch = useDispatch();

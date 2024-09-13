@@ -1,6 +1,6 @@
 import ChartsAndMaps from '../components/ChartsAndMaps'
 
-const ChartsAndMapsPage = () => {
+const ChartsAndMapsPage: React.FC = () => {
   return (
     <div>
       <ChartsAndMaps />

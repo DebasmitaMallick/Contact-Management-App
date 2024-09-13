@@ -4,7 +4,7 @@ import ContactCard from "./ContactCard";
 import MessageBox from "./MessageBox";
 import { useState } from "react";
 
-const ContactList = () => {
+const ContactList: React.FC = () => {
   const contacts = useSelector((state: RootState) => state.contacts.contacts);
   const [showMessage, setShowMessage] = useState(true);
   const handleClose = () => setShowMessage(false);
@@ -19,7 +19,7 @@ const ContactList = () => {
     );
   }
   return (
-    <div className={`grid xl:grid-cols-10 lg:grid-cols-7 md:grid-cols-4 sm:grid-cols-2 gap-3 p-5`}>
+    <div className={`grid grid-cols-2 gap-3 p-5 justify-items-center`}>
       {contacts.map((contact) => (
         <ContactCard key={contact.id} data={contact} />
       ))}
