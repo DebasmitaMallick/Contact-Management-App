@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Contact, contactActions } from "../store/contacts";
 import Button from "../components/Button";
@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { RiDeleteBin6Line as DeleteIcon } from "react-icons/ri";
 import { MdOutlineEdit as EditIcon } from "react-icons/md";
+import ConfirmDialog from "../components/ConfirmModal";
 
 const ContactDetailPage: React.FC = () => {
   const location = useLocation();
@@ -13,14 +14,31 @@ const ContactDetailPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
+
+  const handleConfirmDelete = () => {
+    // Handle confirmation action
+    dispatch(contactActions.deleteContact(data.id));
+    navigate("..");
+    toast.info("Contact Deleted");
+    closeDialog();
+  };
+
+  const handleCancelDelete = () => {
+    // Handle cancel action
+    console.log('Cancelled');
+    closeDialog();
+  };
+
   if (!data) {
     return <div>No contact data available.</div>; // Handle the case where data might be undefined
   }
 
   const handleDelete = () => {
-    dispatch(contactActions.deleteContact(data.id));
-    navigate("..");
-    toast.info("Contact Deleted");
+    openDialog();
   };
 
   return (
@@ -37,8 +55,8 @@ const ContactDetailPage: React.FC = () => {
         <div>
           <span className="inline-block min-w-32">Status: </span>
           <span
-            className={`text-${
-              data.status === "active" ? "green-500" : "red-600"
+            className={`${
+              data.status === "active" ? "text-green-500" : "text-orange-400"
             } capitalize`}
           >
             {data.status}
@@ -59,6 +77,13 @@ const ContactDetailPage: React.FC = () => {
         >
           <DeleteIcon size={20} />
         </Button>
+        <ConfirmDialog
+          isOpen={isDialogOpen}
+          onRequestClose={closeDialog}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+          message="Delete this contact?"
+        />
       </div>
     </div>
   );
