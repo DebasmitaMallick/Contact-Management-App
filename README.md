@@ -40,7 +40,7 @@ To set up and run the project locally, follow these steps:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/contacts-management-system.git
+    git clone https://github.com/DebasmitaMallick/Contact-Management-App
     ```
 
 2. **Navigate to the project directory**:
