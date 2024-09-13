@@ -1,94 +1,52 @@
 # Contacts Management System
 
-A modern web application for managing contacts, including functionalities to view, create, edit, and delete contacts. This application also features interactive charts and maps displaying COVID-19 data globally.
+## Running the Application
 
-## Features
+To run the Contacts Management System locally, follow these steps:
 
-- **Contact Management**:
-  - View a list of contacts.
-  - Create new contacts.
-  - Edit existing contacts.
-  - Delete contacts.
-
-- **Interactive Charts**:
-  - View COVID-19 case fluctuations over time with a line chart.
-
-- **Interactive Maps**:
-  - Visualize COVID-19 data on a global map with country-specific details.
-
-## Technologies Used
-
-- **Frontend**:
-  - React
-  - TypeScript
-  - Redux Toolkit
-  - React Router DOM
-  - React Query
-  - Leaflet (for maps)
-  - Recharts (for charts)
-
-- **Backend**:
-  - No backend included; data is fetched from external APIs.
-
-- **Styling**:
-  - Tailwind CSS
-
-## Installation
-
-To set up and run the project locally, follow these steps:
-
-1. **Clone the repository**:
+1. **Clone the Repository**:
 
     ```bash
     git clone https://github.com/DebasmitaMallick/Contact-Management-App
     ```
 
-2. **Navigate to the project directory**:
+2. **Navigate to the Project Directory**:
 
     ```bash
     cd contacts-management-system
     ```
 
-3. **Install dependencies**:
+3. **Install Dependencies**:
 
     ```bash
     npm install
     ```
 
-4. **Run the development server**:
+4. **Run the Development Server**:
 
     ```bash
     npm start
     ```
 
-    Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+    This will start the application on [http://localhost:3000](http://localhost:3000). Open this URL in your web browser to access the app.
 
-## Usage
+## API Endpoints Used
 
-- **Contacts Page**: View the list of contacts, or click on "Create Contact" to add a new one. Use the "Details" button to view more information about a contact.
-- **Edit Contact**: Modify contact details and save changes.
-- **Charts and Maps**: Explore global COVID-19 data through interactive charts and maps.
+The application fetches COVID-19 data from the following external APIs:
 
-## API Endpoints
+1. **Historical COVID-19 Data**:
+    - **Endpoint**: [Historical Data](https://disease.sh/v3/covid-19/historical/all?lastdays=all)
+    - **Description**: Provides historical data on COVID-19 cases globally over a specified period. This data is used to render the line chart displaying case fluctuations.
 
-- **COVID-19 Data**:
-  - [Historical Data](https://disease.sh/v3/covid-19/historical/all?lastdays=all)
-  - [Country Data](https://disease.sh/v3/covid-19/countries)
+2. **Country-specific COVID-19 Data**:
+    - **Endpoint**: [Country Data](https://disease.sh/v3/covid-19/countries)
+    - **Description**: Provides current COVID-19 statistics for each country, including active cases, recovered cases, deaths, and more. This data is used to populate the interactive map with markers for each country.
 
-## Contributing
+## Additional Information
 
-If you would like to contribute to the project, please follow these steps:
+- **Contact Management**: Users can view, create, edit, and delete contacts. The application uses Redux Toolkit for state management.
+- **Charts and Maps**: Interactive visualizations are powered by Recharts (for charts) and Leaflet (for maps).
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a new Pull Request.
+For further customization or contribution, refer to the [contributing guidelines](#contributing) in the repository.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any questions or feedback, please contact [yourname@example.com](mailto:yourname@example.com).
+If you encounter any issues or need additional help, please contact [yourname@example.com](mailto:yourname@example.com).
