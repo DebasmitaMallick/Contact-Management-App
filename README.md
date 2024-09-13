@@ -13,7 +13,7 @@ To run the Contacts Management System locally, follow these steps:
 2. **Navigate to the Project Directory**:
 
     ```bash
-    cd contacts-management-system
+    cd contacts-management-app
     ```
 
 3. **Install Dependencies**:
@@ -46,7 +46,3 @@ The application fetches COVID-19 data from the following external APIs:
 
 - **Contact Management**: Users can view, create, edit, and delete contacts. The application uses Redux Toolkit for state management.
 - **Charts and Maps**: Interactive visualizations are powered by Recharts (for charts) and Leaflet (for maps).
-
-For further customization or contribution, refer to the [contributing guidelines](#contributing) in the repository.
-
-If you encounter any issues or need additional help, please contact [yourname@example.com](mailto:yourname@example.com).
